@@ -1,3 +1,9 @@
+#install Ad module
+Install-WindowsFeature -Name "RSAT-AD-PowerShell" –IncludeAllSubFeature
+
+#confirm installation
+Get-WindowsFeature -Name "RSAT-AD-PowerShell"
+
 # Get all users from Active Directory
 $users = Get-ADUser -Filter * -Property LastLogonDate
 
