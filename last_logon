@@ -1,0 +1,12 @@
+# Get all users from Active Directory
+$users = Get-ADUser -Filter * -Property LastLogonDate
+
+# Loop through each user and display their last logon date
+foreach ($user in $users) {
+    $lastLogon = $user.LastLogonDate
+    if ($lastLogon) {
+        Write-Output "$($user.SamAccountName) last logged on at $lastLogon"
+    } else {
+        Write-Output "$($user.SamAccountName) has never logged on."
+    }
+}
